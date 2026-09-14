@@ -2,7 +2,7 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 
 export const metadata = {
-  title: 'Best Buy Clone',
+  title: 'Bao',
   description: 'Demo Next.js + Tailwind',
 };
 
