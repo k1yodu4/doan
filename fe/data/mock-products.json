@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro Max",
+    "price": 29990000,
+    "imageUrl": "https://picsum.photos/seed/iphone15/400/400",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24 Ultra",
+    "price": 27990000,
+    "imageUrl": "https://picsum.photos/seed/galaxys24/400/400",
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "name": "MacBook Air M3",
+    "price": 26990000,
+    "imageUrl": "https://picsum.photos/seed/macbookm3/400/400",
+    "rating": 4.9
+  },
+  {
+    "id": 4,
+    "name": "Sony WH-1000XM5",
+    "price": 6990000,
+    "imageUrl": "https://picsum.photos/seed/sonyxm5/400/400",
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "name": "iPad Pro 11 inch M4",
+    "price": 23990000,
+    "imageUrl": "https://picsum.photos/seed/ipadpro/400/400",
+    "rating": 4.8
+  }
+]
