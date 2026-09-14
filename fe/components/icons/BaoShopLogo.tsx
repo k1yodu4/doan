@@ -6,7 +6,6 @@ type Props = {
 export default function BaoShopLogo({ className = 'h-auto w-20' }: Props) {
   return (
     <div className={`flex flex-col leading-none ${className}`}>
-      {/* Dòng 1: BAO */}
       <svg
         aria-label="bao"
         className="block h-auto w-full"
@@ -26,8 +25,6 @@ export default function BaoShopLogo({ className = 'h-auto w-20' }: Props) {
           fill="currentColor"
         />
       </svg>
-
-      {/* Dòng 2: SHOP + miếng dưa hấu */}
       <svg
         aria-label="shop with watermelon"
         className="mt-0.5 block h-auto w-full"
