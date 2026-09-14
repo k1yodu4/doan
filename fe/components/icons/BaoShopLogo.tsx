@@ -10,7 +10,7 @@ export default function BaoShopLogo({ className = 'h-auto w-20' }: Props) {
       <svg
         aria-label="bao"
         className="block h-auto w-full"
-        viewBox="0 0 220 80"
+        viewBox="0 0 200 76"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -27,27 +27,41 @@ export default function BaoShopLogo({ className = 'h-auto w-20' }: Props) {
         />
       </svg>
 
-      {/* Dòng 2: SHOP */}
+      {/* Dòng 2: SHOP + miếng dưa hấu */}
       <svg
-        aria-label="shop"
-        className="block h-auto w-full"
-        viewBox="0 0 300 100"
+        aria-label="shop with watermelon"
+        className="mt-0.5 block h-auto w-full"
+        viewBox="0 0 300 70"
         xmlns="http://www.w3.org/2000/svg"
       >
+        {/* S */}
         <path
-          d="M28 6 C46 6 56 13 56 22 H44 C44 18 38 16 30 16 C22 16 18 19 18 23 C18 27 22 29 32 31 C50 35 58 40 58 51 C58 60 48 64 32 64 C14 64 4 57 4 48 H16 C16 52 22 54 30 54 C38 54 44 52 44 47 C44 43 38 41 28 39 C12 36 4 31 4 21 C4 12 12 6 28 6 Z"
-          fill="currentColor"
-          transform="translate(0,-6)"
-        />
-        <path d="M70 4 H82 V26 H94 V4 H106 V62 H94 V36 H82 V62 H70 Z" fill="currentColor" />
-        <path
-          d="M140 4 C160 4 173 16 173 32 C173 48 160 62 140 62 C120 62 107 48 107 32 C107 16 120 4 140 4 Z M140 14 C128 14 119 22 119 32 C119 42 128 52 140 52 C152 52 161 42 161 32 C161 22 152 14 140 14 Z"
+          d="M28 0 C46 0 56 7 56 16 H44 C44 12 38 10 30 10 C22 10 18 13 18 17 C18 21 22 23 32 25 C50 29 58 34 58 45 C58 54 48 58 32 58 C14 58 4 51 4 42 H16 C16 46 22 48 30 48 C38 48 44 46 44 41 C44 37 38 35 28 33 C12 30 4 25 4 15 C4 6 12 0 28 0 Z"
           fill="currentColor"
         />
+        {/* H */}
+        <path d="M70 -2 H82 V20 H94 V-2 H106 V56 H94 V30 H82 V56 H70 Z" fill="currentColor" />
+        {/* O */}
+        <g transform="translate(107, -2)">
+          {/* Vỏ xanh — bán kính 48 */}
+          <path d="M0 48 A48 48 0 0 1 96 48 Z" fill="#2e7d32" />
+
+          {/* Ruột đỏ — bán kính 44 */}
+          <path d="M8 48 A44 44 0 0 1 88 48 Z" fill="#ef4444" />
+
+          {/* Hạt — to hơn, dời ra xa */}
+          <ellipse cx="28" cy="38" rx="3" ry="4.5" fill="#1a1a1a" transform="rotate(-20 28 38)" />
+          <ellipse cx="48" cy="30" rx="3" ry="4.5" fill="#1a1a1a" />
+          <ellipse cx="68" cy="38" rx="3" ry="4.5" fill="#1a1a1a" transform="rotate(20 68 38)" />
+          <ellipse cx="38" cy="44" rx="3" ry="4.5" fill="#1a1a1a" transform="rotate(-10 38 44)" />
+          <ellipse cx="58" cy="44" rx="3" ry="4.5" fill="#1a1a1a" transform="rotate(10 58 44)" />
+        </g>
+        {/* P */}
         <path
-          d="M190 4 H214 C228 4 236 12 236 24 C236 36 228 44 214 44 H202 V62 H190 Z M202 14 V34 H212 C220 34 224 30 224 24 C224 18 220 14 212 14 Z"
+          d="M190 -2 H214 C228 -2 236 6 236 18 C236 30 228 38 214 38 H202 V56 H190 Z M202 8 V28 H212 C220 28 224 24 224 18 C224 12 220 8 212 8 Z"
           fill="currentColor"
         />
+        
       </svg>
     </div>
   );
