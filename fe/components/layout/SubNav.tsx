@@ -24,7 +24,6 @@ const linkItems = [
   { label: 'Trade-In', href: '/trade-in' },
   { label: 'More', href: '/more', hasDropdown: true },
 ];
-
 export default function SubNav({ visible }: SubNavProps) {
   return (
     <div
@@ -32,7 +31,7 @@ export default function SubNav({ visible }: SubNavProps) {
         visible ? 'max-h-16 opacity-100' : 'max-h-0 opacity-0'
       }`}
     >
-      <div className="mx-auto flex h-14 max-w-[1600px] items-center gap-6 px-4 text-sm">
+      <div className="mx-auto flex h-14 max-w-[1600px] items-center gap-6 px-4 py-3 md:gap-6 md:px-8 text-sm">
         {/* Left: pill buttons */}
         <div className="flex shrink-0 items-center gap-3">
           {navItems.map((item) => (
@@ -48,7 +47,6 @@ export default function SubNav({ visible }: SubNavProps) {
             </Link>
           ))}
         </div>
-
         {/* Right: plain links */}
         <div className="flex flex-1 items-center justify-end gap-5 overflow-hidden">
           {linkItems.map((item) => (
