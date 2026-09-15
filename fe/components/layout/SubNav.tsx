@@ -1,5 +1,5 @@
 'use client';
-
+import DropDownIcon from '@/components/icons/DropDownIcon';
 import Link from 'next/link';
 
 type SubNavProps = {
@@ -43,19 +43,7 @@ export default function SubNav({ visible }: SubNavProps) {
             >
               {item.label}
               {item.hasDropdown && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="img"
-                  fill="currentColor"
-                  className="block h-4 w-4"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="m12.71 16.29 5.59-5.59c.63-.63.18-1.71-.71-1.71H6.41c-.89 0-1.34 1.08-.71 1.71l5.59 5.59c.39.39 1.02.39 1.41 0Z"
-                  />
-                </svg>
+                <DropDownIcon className="h-3 w-3.5 text-[#fbfbfb]" />
               )}
             </Link>
           ))}
@@ -71,19 +59,7 @@ export default function SubNav({ visible }: SubNavProps) {
             >
               {item.label}
               {item.hasDropdown && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="img"
-                  fill="currentColor"
-                  className="block h-3 w-3"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="m12.71 16.29 5.59-5.59c.63-.63.18-1.71-.71-1.71H6.41c-.89 0-1.34 1.08-.71 1.71l5.59 5.59c.39.39 1.02.39 1.41 0Z"
-                  />
-                </svg>
+                <DropDownIcon className="h-5 w-5" />
               )}
             </Link>
           ))}

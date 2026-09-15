@@ -1,4 +1,3 @@
-// components/icons/BaoShopLogo.tsx
 type Props = {
   className?: string;
 };
