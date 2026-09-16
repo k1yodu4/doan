@@ -3,9 +3,9 @@ spring:
     name: auth-service
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:5432/bao_shop?currentSchema=auth
-    username: ${DB_USERNAME:auth_user}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=auth
+    username: auth_user
+    password: gbao4132
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -14,8 +14,6 @@ spring:
     properties:
       hibernate:
         default_schema: auth
-        format_sql: true
-    show-sql: true
 
   flyway:
     enabled: true
