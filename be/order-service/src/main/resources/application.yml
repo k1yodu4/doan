@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=order
+    username: order_user
+    password: order_pass_2026
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: order
+  flyway:
+    enabled: true
+    schemas: order
+    default-schema: order
+    locations: classpath:db/migration

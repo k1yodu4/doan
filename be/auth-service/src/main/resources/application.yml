@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=auth
+    username: auth_user
+    password: gbao4132
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: auth
+  flyway:
+    enabled: true
+    schemas: auth
+    default-schema: auth
+    locations: classpath:db/migration

@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=payment
+    username: payment_user
+    password: payment_pass_2026
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: payment
+  flyway:
+    enabled: true
+    schemas: payment
+    default-schema: payment
+    locations: classpath:db/migration
