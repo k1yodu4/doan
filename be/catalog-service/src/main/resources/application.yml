@@ -1,17 +1,28 @@
 spring:
+  application:
+    name: catalog-service
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=catalog
-    username: catalog_user
-    password: gbao4132
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/bao_shop?currentSchema=catalog
+    username: ${DB_USERNAME:catalog_user}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: validate
     properties:
       hibernate:
         default_schema: catalog
+        format_sql: true
+    show-sql: true
+
   flyway:
     enabled: true
     schemas: catalog
     default-schema: catalog
     locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: 8082
