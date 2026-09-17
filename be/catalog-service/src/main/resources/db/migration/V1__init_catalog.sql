@@ -1,7 +1,5 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 CREATE TABLE categories (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   parent_id UUID REFERENCES categories(id) ON DELETE SET NULL,
   name VARCHAR(255) NOT NULL,
   slug VARCHAR(255) UNIQUE NOT NULL,
@@ -12,7 +10,7 @@ CREATE INDEX idx_categories_parent_id ON categories(parent_id);
 CREATE INDEX idx_categories_slug ON categories(slug);
 
 CREATE TABLE products (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   sku VARCHAR(100) UNIQUE NOT NULL,
   category_id UUID REFERENCES categories(id) ON DELETE SET NULL,
   brand VARCHAR(100),
@@ -32,7 +30,7 @@ CREATE INDEX idx_products_slug ON products(slug);
 CREATE INDEX idx_products_specs_gin ON products USING GIN (specs);
 
 CREATE TABLE product_images (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   product_id UUID NOT NULL REFERENCES products(id) ON DELETE CASCADE,
   url TEXT NOT NULL,
   sort_order INT NOT NULL DEFAULT 0
