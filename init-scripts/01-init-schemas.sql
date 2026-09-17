@@ -4,7 +4,7 @@
 CREATE USER auth_user WITH PASSWORD 'gbao4132';
 CREATE USER catalog_user WITH PASSWORD 'gbao4132';
 CREATE USER inventory_user WITH PASSWORD 'gbao4132';
-CREATE USER order_user WITH PASSWORD 'gbao4132';
+CREATE USER orders_user WITH PASSWORD 'gbao4132';    -- ← Sửa: bỏ 1 chữ s
 CREATE USER payment_user WITH PASSWORD 'gbao4132';
 
 -- ============================================
@@ -13,7 +13,7 @@ CREATE USER payment_user WITH PASSWORD 'gbao4132';
 CREATE SCHEMA auth;
 CREATE SCHEMA catalog;
 CREATE SCHEMA inventory;
-CREATE SCHEMA "order";
+CREATE SCHEMA orders;                                 -- ← Sửa: bỏ 1 chữ s
 CREATE SCHEMA payment;
 
 -- ============================================
@@ -22,17 +22,17 @@ CREATE SCHEMA payment;
 GRANT ALL ON SCHEMA auth TO auth_user;
 GRANT ALL ON SCHEMA catalog TO catalog_user;
 GRANT ALL ON SCHEMA inventory TO inventory_user;
-GRANT ALL ON SCHEMA "order" TO order_user;
+GRANT ALL ON SCHEMA orders TO orders_user;            -- ← Sửa
 GRANT ALL ON SCHEMA payment TO payment_user;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA auth GRANT ALL ON TABLES TO auth_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA catalog GRANT ALL ON TABLES TO catalog_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT ALL ON TABLES TO inventory_user;
-ALTER DEFAULT PRIVILEGES IN SCHEMA "order" GRANT ALL ON TABLES TO order_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA orders GRANT ALL ON TABLES TO orders_user;   -- ← Sửa
 ALTER DEFAULT PRIVILEGES IN SCHEMA payment GRANT ALL ON TABLES TO payment_user;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA auth GRANT ALL ON SEQUENCES TO auth_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA catalog GRANT ALL ON SEQUENCES TO catalog_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT ALL ON SEQUENCES TO inventory_user;
-ALTER DEFAULT PRIVILEGES IN SCHEMA "order" GRANT ALL ON SEQUENCES TO order_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA orders GRANT ALL ON SEQUENCES TO orders_user; -- ← Sửa
 ALTER DEFAULT PRIVILEGES IN SCHEMA payment GRANT ALL ON SEQUENCES TO payment_user;

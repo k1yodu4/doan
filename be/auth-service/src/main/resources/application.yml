@@ -3,24 +3,24 @@ spring:
     name: auth-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/bao_shop?currentSchema=auth
-    username: auth_user
-    password: gbao4132
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:bao_shop}?currentSchema=${DB_SCHEMA:auth}
+    username: ${DB_USERNAME:auth_user}
+    password: ${DB_PASSWORD:gbao4132}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: ${HIBERNATE_DDL_AUTO:validate}
     properties:
       hibernate:
-        default_schema: auth
+        default_schema: ${DB_SCHEMA:auth}
 
   flyway:
-    enabled: true
-    schemas: auth
-    default-schema: auth
+    enabled: ${FLYWAY_ENABLED:true}
+    schemas: ${DB_SCHEMA:auth}
+    default-schema: ${DB_SCHEMA:auth}
     locations: classpath:db/migration
     baseline-on-migrate: true
 
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}

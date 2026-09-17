@@ -3,26 +3,24 @@ spring:
     name: catalog-service
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:5432/bao_shop?currentSchema=catalog
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:bao_shop}?currentSchema=${DB_SCHEMA:catalog}
     username: ${DB_USERNAME:catalog_user}
-    password: ${DB_PASSWORD}
+    password: ${DB_PASSWORD:gbao4132}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: ${HIBERNATE_DDL_AUTO:validate}
     properties:
       hibernate:
-        default_schema: catalog
-        format_sql: true
-    show-sql: true
+        default_schema: ${DB_SCHEMA:catalog}
 
   flyway:
-    enabled: true
-    schemas: catalog
-    default-schema: catalog
+    enabled: ${FLYWAY_ENABLED:true}
+    schemas: ${DB_SCHEMA:catalog}
+    default-schema: ${DB_SCHEMA:catalog}
     locations: classpath:db/migration
     baseline-on-migrate: true
 
 server:
-  port: 8082
+  port: ${SERVER_PORT:8082}

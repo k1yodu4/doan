@@ -1,10 +1,10 @@
 spring:
   application:
-    name: inventory-service
+    name: orders-service
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:bao_shop}?currentSchema=${DB_SCHEMA:inventory}
-    username: ${DB_USERNAME:inventory_user}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:bao_shop}?currentSchema=${DB_SCHEMA:orders}
+    username: ${DB_USERNAME:orders_user}
     password: ${DB_PASSWORD:gbao4132}
     driver-class-name: org.postgresql.Driver
 
@@ -13,14 +13,14 @@ spring:
       ddl-auto: ${HIBERNATE_DDL_AUTO:validate}
     properties:
       hibernate:
-        default_schema: ${DB_SCHEMA:inventory}
+        default_schema: ${DB_SCHEMA:orders}
 
   flyway:
     enabled: ${FLYWAY_ENABLED:true}
-    schemas: ${DB_SCHEMA:inventory}
-    default-schema: ${DB_SCHEMA:inventory}
+    schemas: ${DB_SCHEMA:orders}
+    default-schema: ${DB_SCHEMA:orders}
     locations: classpath:db/migration
     baseline-on-migrate: true
 
 server:
-  port: ${SERVER_PORT:8083}
+  port: ${SERVER_PORT:8084}
