@@ -9,8 +9,8 @@ const { createProduct, healthCheck } = require('./clients/catalogClient');
  */
 function parseArgs() {
     const args = process.argv.slice(2);
-    const category = args.find(a => a.startsWith('--category='))?.split('=')[1]  'cpu';
-    const pages = parseInt(args.find(a => a.startsWith('--pages='))?.split('=')[1]  '1', 10);
+    const category = args.find(a => a.startsWith('--category='))?.split('=')[1] || 'cpu';
+    const pages = parseInt(args.find(a => a.startsWith('--pages='))?.split('=')[1] || '1', 10);
     const skipDb = args.includes('--skip-db');
     return { category, pages, skipDb };
 }
@@ -48,12 +48,12 @@ async function main() {
             const products = await scrapeCategory(cat, pages);
             allProducts.push(...products);
         } catch (err) {
-            console.error(❌ Category ${cat} lỗi: ${err.message});
+            console.error(`❌ Category ${cat} lỗi: ${err.message}`);
         }
     }
 
-    console.log(\n${'='.repeat(50)});
-    console.log(📊 TỔNG: ${allProducts.length} sản phẩm);
+    console.log(`\n${'='.repeat(50)}`);
+    console.log(`📊 TỔNG: ${allProducts.length} sản phẩm`);
     console.log('='.repeat(50));
 
     // ============================================
@@ -76,7 +76,7 @@ async function main() {
 
     for (let i = 0; i < allProducts.length; i++) {
         const product = allProducts[i];
-        process.stdout.write(   [${i + 1}/${allProducts.length}] ${product.name?.slice(0, 50)}... );
+        process.stdout.write(`   [${i + 1}/${allProducts.length}] ${product.name?.slice(0, 50)}... `);
 
         try {
             const result = await createProduct(product);
@@ -89,15 +89,15 @@ async function main() {
             }
         } catch (err) {
             console.log('❌');
-            console.error(      ${err.response?.data?.message || err.message});
+            console.error(`      ${err.response?.data?.message || err.message}`);
             failed++;
         }
     }
 
-    console.log(\n${'='.repeat(50)});
-    console.log(✅ Thành công: ${success});
-    console.log(⏭️  Bỏ qua:    ${skipped});
-    console.log(❌ Thất bại:   ${failed});
+    console.log(`\n${'='.repeat(50)}`);
+    console.log(`✅ Thành công: ${success}`);
+    console.log(`⏭️  Bỏ qua:    ${skipped}`);
+    console.log(`❌ Thất bại:   ${failed}`);
     console.log('='.repeat(50));
 }
 

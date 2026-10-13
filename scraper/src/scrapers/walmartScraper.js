@@ -4,7 +4,7 @@ const path = require('path');
 const { searchProducts, getProductDetails } = require('../clients/parseClient');
 const { transform } = require('../transformers/walmartTransformer');
 
-const OUTPUT_DIR = process.env.OUTPUT_DIR  './output';
+const OUTPUT_DIR = process.env.OUTPUT_DIR || './output';
 const DELAY_MS = 12000;  // 12s giữa các request (rate limit 5 req/min)
 
 /**
@@ -66,8 +66,8 @@ async function scrapeCategory(category, maxPages = 1) {
             break;
         }
 
-        const items = searchResult.items  [];
-        console.log(   Tìm thấy ${items.length} sản phẩm);
+        const items = searchResult.items || [];
+        console.log(`   Tìm thấy ${items.length} sản phẩm`);
 
         if (items.length === 0) {
             console.log('   ⏹️  Hết sản phẩm');
@@ -79,7 +79,7 @@ async function scrapeCategory(category, maxPages = 1) {
         // ============================================
         for (let i = 0; i < items.length; i++) {
             const item = items[i];
-            console.log(   [${i + 1}/${items.length}] ${item.name?.slice(0, 60)}...);
+            console.log(`   [${i + 1}/${items.length}] ${item.name?.slice(0, 60)}...`);
 
             try {
                 const details = await getProductDetails(item.id);
@@ -88,11 +88,11 @@ async function scrapeCategory(category, maxPages = 1) {
                 const transformed = transform(details, category);
                 allProducts.push(transformed);
 
-                console.log(      ✅ $${transformed.basePrice} |  +
-                    ${transformed.images.length} ảnh |  +
-                    ${Object.keys(transformed.specs).length} specs);
+                console.log(`      ✅ $${transformed.basePrice} | ` +
+                    `${transformed.images.length} ảnh | ` +
+                    `${Object.keys(transformed.specs).length} specs`);
             } catch (err) {
-                console.error(      ❌ ${err.message});
+                console.error(`      ❌ ${err.message}`);
             }
 
             // Delay giữa các request
@@ -107,7 +107,7 @@ async function scrapeCategory(category, maxPages = 1) {
         }
     }
 
-    console.log(\n📊 ${category}: ${allProducts.length} sản phẩm (${totalRequests} requests));
+    console.log(`\n📊 ${category}: ${allProducts.length} sản phẩm (${totalRequests} requests)`);
 
     // ============================================
     // 3. SAVE JSON

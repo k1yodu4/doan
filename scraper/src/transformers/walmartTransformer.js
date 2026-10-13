@@ -11,7 +11,7 @@ function transform(w, categorySlug = 'other') {
     // 1. Chuyển specifications array → object
     // ============================================
     const specs = {};
-    (w.specifications  []).forEach(spec => {
+    (w.specifications || []).forEach(spec => {
         const key = spec.name
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '_')
@@ -36,7 +36,7 @@ function transform(w, categorySlug = 'other') {
     // ============================================
     // 3. Images: array URL → array object
     // ============================================
-    const images = (w.images  []).map((url, i) => ({
+    const images = (w.images || []).map((url, i) => ({
         url,
         isPrimary: i === 0,
     }));
@@ -49,7 +49,7 @@ function transform(w, categorySlug = 'other') {
         name: w.name,
         basePrice: w.price,
         originalPrice: w.original_price,
-        currency: w.currency  'USD',
+        currency: w.currency || 'USD',
         brand: w.brand,
         description: w.description,
         rating: w.rating,
@@ -68,7 +68,7 @@ function transform(w, categorySlug = 'other') {
         images,
 
         // Backward compat: ảnh chính
-        imageUrl: images[0]?.url  null,
+        imageUrl: images[0]?.url || null,
     };
 }
 

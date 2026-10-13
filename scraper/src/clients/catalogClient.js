@@ -9,7 +9,7 @@ const client = axios.create({
     timeout: 30000,
 });
 
-/
+/**
  * Gửi sản phẩm lên catalog-service
  * @param {Object} product - Sản phẩm đã transform
  * @returns {Promise<Object>} - ProductResponse từ catalog-service
@@ -28,7 +28,7 @@ async function createProduct(product) {
     }
 }
 
-/
+/**
  * Kiểm tra catalog-service có chạy không
  */
 async function healthCheck() {
