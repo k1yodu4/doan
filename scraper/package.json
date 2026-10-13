@@ -1,0 +1,17 @@
+{
+  "name": "bao-shop-scraper",
+  "version": "1.0.0",
+  "description": "Scraper for Bao Shop",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "scrape:cpu": "node src/index.js --category=cpu",
+    "scrape:gpu": "node src/index.js --category=gpu",
+    "scrape:laptop": "node src/index.js --category=laptop",
+    "scrape:all": "node src/index.js --category=all"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0"
+  }
+}
