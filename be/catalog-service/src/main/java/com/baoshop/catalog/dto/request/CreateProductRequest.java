@@ -1,9 +1,9 @@
 package com.baoshop.catalog.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 public record CreateProductRequest(
     @NotBlank(message = "Name is required")
@@ -13,8 +13,24 @@ public record CreateProductRequest(
     @Positive(message = "Price must be positive")
     BigDecimal basePrice,
 
-    String imageUrl,
-
     @NotBlank(message = "SKU is required")
-    String sku
-) {}
+    String sku,
+
+    // === Mới thêm ===
+    String externalId,
+    String categorySlug,
+    String brand,
+    String description,
+    BigDecimal originalPrice,
+    String currency,
+    BigDecimal rating,
+    Integer reviewCount,
+    String sellerName,
+    String sellerId,
+    String status,
+    Map<String, Object> specs,
+    List<ImageRequest> images,
+    String imageUrl    // Giữ để backward compatible
+) {
+    public record ImageRequest(String url, Boolean isPrimary) {}
+}
